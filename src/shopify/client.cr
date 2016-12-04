@@ -7,12 +7,10 @@ module Shopify
 
     def initialize(@host, @token = nil)
       @host = parse_host(@host)
-
-      @http_client = HTTP::Client.new(@host, tls: true)
+      @http_client = HTTP::Client.new(@host, tls: false)
     end
 
     def get(path : String)
-
       response = @http_client.get("/admin#{path}")
       handle_response(response)
     end

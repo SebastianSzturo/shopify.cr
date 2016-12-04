@@ -1,5 +1,5 @@
 class ShopifyMock
-  PROTOCOL = "https://"
+  PROTOCOL = "http://" # Weird compile error, this should be https
   FIXTURE_PATH = "#{__DIR__}/../fixtures/shopify"
 
   @host : String
