@@ -2,31 +2,42 @@ require "../spec_helper"
 
 describe Shopify::Client do
   context ".new" do
-    it "can be initialized with url and token" do
-      client = Shopify::Client.new("https://shop1.myshopify.com", "token")
-      client.url.should eq("https://shop1.myshopify.com/admin")
+    it "initializes with host and token" do
+      client = Shopify::Client.new("shop1.myshopify.com", "token")
+      client.host.should eq("shop1.myshopify.com")
       client.token.should eq("token")
     end
 
-    it "can be initialized without token" do
-      client = Shopify::Client.new("https://shop1.myshopify.com")
-      client.url.should eq("https://shop1.myshopify.com/admin")
+    it "initializes without token" do
+      client = Shopify::Client.new("shop1.myshopify.com")
+      client.host.should eq("shop1.myshopify.com")
       client.token.should be_nil
     end
 
-    it "can be initialized with a user:password url" do
-      client = Shopify::Client.new("https://user:password@shop1.myshopify.com")
-      client.url.should eq("https://user:password@shop1.myshopify.com/admin")
+    it "initializes with a user:password host" do
+      client = Shopify::Client.new("user:password@shop1.myshopify.com")
+      client.host.should eq("user:password@shop1.myshopify.com")
     end
 
-    it "transforms url into a https admin url" do
+    it "transforms htpps url into a host" do
+      client = Shopify::Client.new("https://shop1.myshopify.com")
+      client.host.should eq("shop1.myshopify.com")
+    end
+
+    it "transforms http url a host" do
+      client = Shopify::Client.new("https://shop1.myshopify.com")
+      client.host.should eq("shop1.myshopify.com")
+    end
+  end
+
+  context ".get" do
+    it "should handle valid response" do
       client = Shopify::Client.new("shop1.myshopify.com")
-      client.url.should eq("https://shop1.myshopify.com/admin")
-    end
+      ShopifyMock.new(client.host)
+        .stub(:get, "/products/1")
+        .with_fixtures
 
-    it "transforms http url a https admin url" do
-      client = Shopify::Client.new("http://shop1.myshopify.com")
-      client.url.should eq("https://shop1.myshopify.com/admin")
+      client.get("/products/1").should eq("OK")
     end
   end
 end

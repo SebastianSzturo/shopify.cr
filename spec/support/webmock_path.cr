@@ -1,0 +1,3 @@
+class WebMock::Stub
+
+end
