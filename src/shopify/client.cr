@@ -5,9 +5,6 @@ module Shopify
     getter host : String
     getter token : String | Nil
 
-    class ClientError < Exception; end
-    class ServerError < Exception; end
-
     def initialize(@host, @token = nil)
       @host = parse_host(@host)
 
@@ -35,7 +32,7 @@ module Shopify
       when 504
         raise ServerError.new("Gateway Timeout")
       else
-
+        ClientError.new
       end
     end
 

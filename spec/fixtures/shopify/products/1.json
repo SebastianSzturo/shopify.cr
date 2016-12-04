@@ -1,0 +1,67 @@
+{
+    "product": {
+        "id": 8502530305,
+        "title": "Apple iPhone 7",
+        "body_html": "This product is great",
+        "vendor": "Apple",
+        "product_type": "Phone",
+        "created_at": "2016-12-04T09:09:33-05:00",
+        "handle": "apple-iphone-7",
+        "updated_at": "2016-12-04T09:09:34-05:00",
+        "published_at": "2016-12-04T09:07:00-05:00",
+        "template_suffix": null,
+        "published_scope": "global",
+        "tags": "Awesome, New",
+        "variants": [{
+            "id": 28705512961,
+            "product_id": 8502530305,
+            "title": "Default Title",
+            "price": "1337.00",
+            "sku": "",
+            "position": 1,
+            "grams": 0,
+            "inventory_policy": "deny",
+            "compare_at_price": null,
+            "fulfillment_service": "manual",
+            "inventory_management": null,
+            "option1": "Default Title",
+            "option2": null,
+            "option3": null,
+            "created_at": "2016-12-04T09:09:33-05:00",
+            "updated_at": "2016-12-04T09:09:33-05:00",
+            "taxable": true,
+            "barcode": "",
+            "image_id": null,
+            "inventory_quantity": 1,
+            "weight": 0.0,
+            "weight_unit": "kg",
+            "old_inventory_quantity": 1,
+            "requires_shipping": true
+        }],
+        "options": [{
+            "id": 10171218433,
+            "product_id": 8502530305,
+            "name": "Title",
+            "position": 1,
+            "values": ["Default Title"]
+        }],
+        "images": [{
+            "id": 19464693953,
+            "product_id": 8502530305,
+            "position": 1,
+            "created_at": "2016-12-04T09:09:34-05:00",
+            "updated_at": "2016-12-04T09:09:34-05:00",
+            "src": "https:\/\/cdn.shopify.com\/s\/files\/1\/1388\/5895\/products\/iphone7-jetblack-select-2016.jpg?v=1480860574",
+            "variant_ids": []
+        }],
+        "image": {
+            "id": 19464693953,
+            "product_id": 8502530305,
+            "position": 1,
+            "created_at": "2016-12-04T09:09:34-05:00",
+            "updated_at": "2016-12-04T09:09:34-05:00",
+            "src": "https:\/\/cdn.shopify.com\/s\/files\/1\/1388\/5895\/products\/iphone7-jetblack-select-2016.jpg?v=1480860574",
+            "variant_ids": []
+        }
+    }
+}
