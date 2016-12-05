@@ -5,6 +5,10 @@ authors:
   - Sebastian Szturo <sebastian.szturo@gmail.com>
 crystal: 0.19.4
 
+dependencies:
+  inflector:
+    github: phoffer/inflector.cr
+    version: "~> 0.1.7"
 
 development_dependencies:
   webmock:
