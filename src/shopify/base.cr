@@ -4,10 +4,13 @@ require "inflector"
 module Shopify
   class Base
     @@client : Shopify::Client = Shopify::Client.new("myshopify.com")
+    @@resource : String = "resource"
+    @@path : String | Nil
 
     def self.find(id)
       resources = Inflector.pluralize(@@resource)
-      response = self.client.get("/#{resources}/#{id}")
+      path = @@path || "/#{resources}"
+      response = self.client.get("#{path}/#{id}")
 
       return unless response.is_a?(String)
       from_json(response, root: @@resource)
@@ -26,7 +29,7 @@ module Shopify
     end
 
     def self.host
-      Shopify::Base.client.try &.host
+      Shopify::Base.client.host
     end
   end
 end
