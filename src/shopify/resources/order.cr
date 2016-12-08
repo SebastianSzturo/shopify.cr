@@ -49,11 +49,11 @@ module Shopify
       checkout_id: Int64,
       source_name: String,
       fulfillment_status: String | Nil,
-      tax_lines: Array(Order::TaxLine),
+      tax_lines: Array(TaxLine),
       tags: String,
       contact_email: String,
       order_status_url: String | Nil,
-      line_items: Array(Order::LineItem),
+      line_items: Array(LineItem),
       shipping_lines: Array(Order::ShippingLine),
       billing_address: Order::Address,
       shipping_address: Order::Address,
@@ -63,41 +63,6 @@ module Shopify
       payment_details: Order::PaymentDetails,
       # customer: Customer
     })
-
-    class TaxLine
-      JSON.mapping({
-        title: String,
-        price: String,
-        rate: Float32
-      })
-    end
-
-    class LineItem
-      JSON.mapping({
-        id: Int64,
-        variant_id: Int64,
-        title: String,
-        quantity: Int32,
-        price: String,
-        grams: Int32,
-        sku: String,
-        variant_title: String,
-        vendor: String | Nil,
-        fulfillment_service: String,
-        product_id: Int64,
-        requires_shipping: Bool,
-        taxable: Bool,
-        gift_card: Bool,
-        name: String,
-        variant_inventory_management: String,
-        properties: Array(Hash(String, String)),
-        product_exists: Bool,
-        fulfillable_quantity: Int32,
-        total_discount: String,
-        fulfillment_status: String | Nil,
-        tax_lines: Array(TaxLine)
-      })
-    end
 
     class ShippingLine
       JSON.mapping({
