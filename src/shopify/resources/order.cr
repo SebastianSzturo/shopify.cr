@@ -38,7 +38,7 @@ module Shopify
       source_identifier: String | Nil,
       source_url: String | Nil,
       processed_at: Time,
-      device_id: String | Nil,
+      device_id: Int64 | Nil,
       browser_ip: String | Nil,
       landing_site_ref: String | Nil,
       order_number: Int32,
@@ -57,9 +57,9 @@ module Shopify
       shipping_lines: Array(Order::ShippingLine),
       billing_address: Order::Address,
       shipping_address: Order::Address,
-      # fulfillments: Array(Fulfillment),
+      fulfillments: Array(Fulfillment),
       client_details: Order::ClientDetails,
-      # refunds: Array(Refund),
+      refunds: Array(Refund),
       payment_details: Order::PaymentDetails,
       # customer: Customer
     })
