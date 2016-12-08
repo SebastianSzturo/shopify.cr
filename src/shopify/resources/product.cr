@@ -16,9 +16,19 @@ module Shopify
       published_scope: String,
       tags: String,
       variants: Array(Variant) | Nil,
-      options: Array(Option),
+      options: Array(Product::Option),
       images: Array(Image),
       image: Image,
     })
+
+    class Option < Base
+      JSON.mapping({
+        id: Int64,
+        product_id: Int64,
+        name: String,
+        position: Int32,
+        values: Array(String),
+      })
+    end
   end
 end
